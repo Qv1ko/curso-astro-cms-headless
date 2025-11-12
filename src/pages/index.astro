@@ -1,5 +1,11 @@
 ---
+const title = "Hello World!";
+const imageError =
+  "https://www.publicdomainpictures.net/pictures/190000/nahled/sad-dog-1468499671wYW.jpg";
 
+const res = await fetch("https://dog.ceo/api/breeds/image/random");
+const data = await res.json();
+const dogImageUrl = data?.message ?? imageError;
 ---
 
 <html lang="en">
@@ -8,9 +14,25 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{title}</title>
   </head>
   <body>
     <h1>Astro</h1>
+    <img
+      src={dogImageUrl}
+      alt="Random Dog"
+      style="max-width: 400px; height:auto;"
+    />
+    <div>
+      <button id="cat-image-button">Get Cat Image</button>
+    </div>
+    <div>
+      <img id="cat-image" style="max-width: 400px; height: auto;" />
+    </div>
   </body>
 </html>
+
+<script>
+  import { setupCatFactButton } from "./cat.ts";
+  setupCatFactButton();
+</script>
