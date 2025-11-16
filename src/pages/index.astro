@@ -1,4 +1,6 @@
 ---
+import DogPics from "../components/DogPics.astro";
+
 const title = "Hello World!";
 const imageError =
   "https://www.publicdomainpictures.net/pictures/190000/nahled/sad-dog-1468499671wYW.jpg";
@@ -18,17 +20,7 @@ const dogImageUrls = data?.message ?? [imageError];
   </head>
   <body>
     <h1>Astro</h1>
-    <div>
-      {
-        dogImageUrls.map((imageUrl: string) => (
-          <img
-            src={imageUrl}
-            alt="Random Dog"
-            style="max-width: 400px; height:auto;"
-          />
-        ))
-      }
-    </div>
+    <DogPics urls={dogImageUrls} />
     <div>
       <button id="cat-image-button">Get Cat Image</button>
     </div>
