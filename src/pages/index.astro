@@ -3,9 +3,9 @@ const title = "Hello World!";
 const imageError =
   "https://www.publicdomainpictures.net/pictures/190000/nahled/sad-dog-1468499671wYW.jpg";
 
-const res = await fetch("https://dog.ceo/api/breeds/image/random");
+const res = await fetch("https://dog.ceo/api/breeds/image/random/5");
 const data = await res.json();
-const dogImageUrl = data?.message ?? imageError;
+const dogImageUrls = data?.message ?? [imageError];
 ---
 
 <html lang="en">
@@ -18,11 +18,17 @@ const dogImageUrl = data?.message ?? imageError;
   </head>
   <body>
     <h1>Astro</h1>
-    <img
-      src={dogImageUrl}
-      alt="Random Dog"
-      style="max-width: 400px; height:auto;"
-    />
+    <div>
+      {
+        dogImageUrls.map((imageUrl: string) => (
+          <img
+            src={imageUrl}
+            alt="Random Dog"
+            style="max-width: 400px; height:auto;"
+          />
+        ))
+      }
+    </div>
     <div>
       <button id="cat-image-button">Get Cat Image</button>
     </div>
