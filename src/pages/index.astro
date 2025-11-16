@@ -1,9 +1,8 @@
 ---
-import "../styles.css";
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 import DogPics from "../components/DogPics.astro";
 
-const title = "Hello World!";
+const title = "Home";
 const imageError =
   "https://www.publicdomainpictures.net/pictures/190000/nahled/sad-dog-1468499671wYW.jpg";
 
@@ -12,25 +11,17 @@ const data = await res.json();
 const dogImageUrls = data?.message ?? [imageError];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-    <DogPics urls={dogImageUrls} />
-    <div>
-      <button id="cat-image-button">Get Cat Image</button>
-    </div>
-    <div>
-      <img id="cat-image" style="max-width: 400px; height: auto;" />
-    </div>
-  </body>
-</html>
+<BaseLayout title={title}>
+  <h1>Astro</h1>
+  <DogPics urls={dogImageUrls} />
+  <div>
+    <button id="cat-image-button">Get Cat Image</button>
+  </div>
+  <div>
+    <img id="cat-image" style="max-width: 400px; height: auto;" />
+  </div>
+  <a href="./about">About</a>
+</BaseLayout>
 
 <script>
   import { setupCatFactButton } from "./cat.ts";
