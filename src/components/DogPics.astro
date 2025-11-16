@@ -8,7 +8,7 @@ const { urls } = Astro.props;
 
 <section aria-label="Dog gallery">
     {
-        urls.map((imageUrl: string) => (
+        urls.map((imageUrl) => (
             <div class="card">
                 <img src={imageUrl} alt="Random Dog" />
             </div>
