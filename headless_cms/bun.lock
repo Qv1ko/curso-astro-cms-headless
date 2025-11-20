@@ -5,6 +5,7 @@
     "": {
       "name": "astro-project",
       "dependencies": {
+        "@content-island/api-client": "^0.14.1",
         "@tailwindcss/vite": "^4.1.13",
         "@types/marked": "^5.0.2",
         "astro": "^5.14.0",
@@ -39,6 +40,8 @@
     "@babel/types": ["@babel/types@7.28.4", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.27.1" } }, "sha512-bkFqkLhh3pMBUQQkpVgWDWq/lqzc2678eUyDlTBhRqhCHFguYYGM0Efga7tYk4TogG/3x0EEl66/OQ+WGbWB/Q=="],
 
     "@capsizecss/unpack": ["@capsizecss/unpack@2.4.0", "", { "dependencies": { "blob-to-buffer": "^1.2.8", "cross-fetch": "^3.0.4", "fontkit": "^2.0.2" } }, "sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q=="],
+
+    "@content-island/api-client": ["@content-island/api-client@0.14.1", "", {}, "sha512-WhITIl0y+8WRBG8NAQ61v/hc+jqPHlWBw37P3RcYIbxxrFi4ZlmkIly8fKvV53fLAx4kbhq2fEZHSdAuho5ltg=="],
 
     "@emnapi/runtime": ["@emnapi/runtime@1.5.0", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-97/BJ3iXHww3djw6hYIfErCZFee7qCtrneuLa20UXFCOTCfBM2cvQHjWJ2EG0s0MtdNwInarqCTz35i4wWXHsQ=="],
 
