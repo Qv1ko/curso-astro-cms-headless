@@ -1,8 +1,8 @@
 ---
 import PostCard from './components/post-card.astro';
-import { getAllPost } from './post-collection.api';
+import { getAllPosts } from './post-collection.api';
 
-const posts = await getAllPost();
+const posts = await getAllPosts();
 ---
 
 <section class="flex flex-1 flex-col gap-9">
