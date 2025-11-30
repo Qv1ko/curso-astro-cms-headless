@@ -19,7 +19,7 @@ const { entry, likeCount, minReadText } = Astro.props;
 
   <div class="border-tbase-500/40 mb-2 flex items-center justify-between gap-4 border-y py-2">
     <p class="text-xs">{entry.readTime} {minReadText}</p>
-    <LikeButton client:load />
+    <LikeButton client:load slug={entry.slug} />
   </div>
 
   <MarkdownRenderer content={entry.content} />
