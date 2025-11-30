@@ -19,6 +19,7 @@
     "astro": "^5.14.0",
     "highlight.js": "^11.11.1",
     "marked": "^16.2.1",
+    "resend": "^6.5.2",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

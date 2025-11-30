@@ -20,6 +20,8 @@ const { content } = Astro.props;
     </h2>
     <p class="text-lg">{content.description}</p>
     <form
+      id="newsletter-form-wide"
+      method="POST"
       class="sm:border-text relative flex w-full max-w-[450px] flex-col items-center gap-4 sm:flex-row sm:gap-2 sm:rounded-2xl sm:border sm:py-2 sm:pr-2 sm:pl-4"
     >
       <label for="newsletter-email-2" class="sr-only">{content.inputLabel}</label>
@@ -51,3 +53,20 @@ const { content } = Astro.props;
     <ShapeOval />
   </div>
 </section>
+
+<script>
+  import { actions } from 'astro:actions';
+  const form = document.getElementById('newsletter-form-wide');
+
+  const handleSubmit = async (event: Event) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const sendFormData = new FormData(form);
+    const result = await actions.sendSubscription(sendFormData);
+    if (result.data?.success) form.reset();
+  };
+
+  if (form && form instanceof HTMLFormElement) {
+    form.addEventListener('submit', e => handleSubmit(e));
+  }
+</script>
