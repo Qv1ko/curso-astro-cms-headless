@@ -45,19 +45,34 @@
 </header>
 
 <script>
-  const button = document.getElementById('theme-toggle');
-  const html = document.documentElement;
-  const storedTheme = localStorage.getItem('theme');
-
-  if (storedTheme) {
-    html.classList.toggle('dark', storedTheme === 'dark');
-  }
-  if (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    html.classList.add('dark');
-  }
-
-  button?.addEventListener('click', () => {
+  const handleThemeToggle = () => {
+    const html = document.documentElement;
     html.classList.toggle('dark');
     localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-  });
+  };
+
+  const initThemeToggle = () => {
+    const button = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme) {
+      html.classList.toggle('dark', storedTheme === 'dark');
+    }
+    if (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      html.classList.add('dark');
+    }
+
+    // Limpiar el listener anterior si existe
+    button?.removeEventListener('click', handleThemeToggle);
+
+    // Agregar nuevo listener
+    button?.addEventListener('click', handleThemeToggle);
+  };
+
+  // Inicializar al cargar
+  initThemeToggle();
+
+  // Re inicializar después de cada transición de vista
+  document.addEventListener('astro:after-swap', initThemeToggle);
 </script>
