@@ -1,0 +1,7 @@
+---
+import { getRandomDogImage } from "../api/animal.api";
+const dogImage = await getRandomDogImage();
+---
+
+<h1>🐶 Random Dog Image</h1>
+<img src={dogImage} alt="Random Dog" />

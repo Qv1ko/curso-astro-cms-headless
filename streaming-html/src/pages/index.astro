@@ -1,0 +1,25 @@
+---
+export const prerender = false;
+
+import Dog from "../components/dog.astro";
+import Cat from "../components/cat.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Dog />
+    <Cat server:defer>
+      <div slot="fallback">
+        <h1 style="color: green; font-size: 2rem;">🐱 Loading cat fact...</h1>
+      </div>
+    </Cat>
+  </body>
+</html>
